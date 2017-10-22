@@ -1,14 +1,7 @@
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 import enum
 
-app = Flask("catalyzapp")
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////tmp/test.db"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+db = SQLAlchemy()
 
 
 class User(db.Model):
@@ -50,4 +43,3 @@ class Message(db.Model):
   )
   timestamp = db.Column(db.DateTime, primary_key=True, nullable=False)
   message = db.Column(db.Text, nullable=False)
-  timestamp = db.Column(db.DateTime, nullable=False)
