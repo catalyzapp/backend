@@ -18,7 +18,7 @@ class User(db.Model):
   first_name = db.Column(db.String(50), nullable=False)
   last_name = db.Column(db.String(50), nullable=False)
   email = db.Column(db.String(50), nullable=False)
-  image_link = db.Column(db.String(100), nullable=False)
+  image_link = db.Column(db.String(300), nullable=False)
   language = db.Column(db.Enum(LanguageEnum), nullable=False)
   country_of_origin = db.Column(db.String(3), nullable=False)
   gender = db.Column(db.String(50), nullable=False)
