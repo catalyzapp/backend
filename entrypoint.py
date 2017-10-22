@@ -2,7 +2,8 @@ from flask import Flask, request, Response, jsonify
 from flask_migrate import Migrate
 from app import \
   user_controller, \
-  conversation_controller
+  conversation_controller, \
+  matchup_controller
 from app.models import db
 import logging
 
@@ -41,6 +42,26 @@ def get_user_endpoint(facebook_id):
   response = jsonify(user)
   response.status_code = 200
   return response
+
+
+@app.route("/matchup", methods=["POST"])
+def get_matchup_endpoint():
+  json_body = request.get_json(force=True)
+  logger.info("POST /matchup %s" % json_body)
+
+  facebook_id = json_body.get("facebook_id")
+  if facebook_id is None:
+    return Response(status=400)
+
+  try:
+    response = jsonify(
+      matchup_controller.matchup(facebook_id=facebook_id)
+    )
+    response.status_code = 200
+    return response
+  except Exception as e:
+    logger.error("%s" % e.message)
+    return Response(status=400)
 
 
 @app.route("/conversation", methods=["POST"])
