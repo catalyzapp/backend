@@ -75,7 +75,8 @@ The backend JSON API has the following endpoints:
   * `POST /`
     * Creates a new message
     * Input:
-        * conversation_id :: int
+        * mentor :: string{facebook_id}
+        * mentee :: string{facebook_id}
         * sent_by :: string{facebook_id}
         * message :: string
         * timestamp :: string
