@@ -64,7 +64,7 @@ The backend JSON API has the following endpoints:
         * Gets a list of all conversations a user has had
         * Input
             * facebook_id :: string{facebook_id}
-         * Output
+         * Output[]:
             * mentor :: string
             * mentor_bio :: string
             * mentee :: string
