@@ -85,6 +85,5 @@ The backend JSON API has the following endpoints:
 * **message** (primary key: conversation_id, sent_by, timestamp)
     * conversation_id :: conversation.id
     * sent_by :: user.facebook_id
-    * timestamp :: string
     * message :: string
     * timestamp :: timestamp(with time zone)
