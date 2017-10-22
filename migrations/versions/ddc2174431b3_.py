@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: f60c2b75de63
+Revision ID: ddc2174431b3
 Revises: 
-Create Date: 2017-10-22 07:56:57.722452
+Create Date: 2017-10-22 13:46:21.244098
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f60c2b75de63'
+revision = 'ddc2174431b3'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -44,11 +44,11 @@ def upgrade():
     op.create_table('message',
     sa.Column('conversation_id', sa.Integer(), nullable=False),
     sa.Column('sent_by', sa.Integer(), nullable=False),
-    sa.Column('message', sa.Text(), nullable=False),
     sa.Column('timestamp', sa.DateTime(), nullable=False),
+    sa.Column('message', sa.Text(), nullable=False),
     sa.ForeignKeyConstraint(['conversation_id'], ['conversation.id'], ),
     sa.ForeignKeyConstraint(['sent_by'], ['user.facebook_id'], ),
-    sa.PrimaryKeyConstraint('conversation_id', 'sent_by')
+    sa.PrimaryKeyConstraint('conversation_id', 'sent_by', 'timestamp')
     )
     # ### end Alembic commands ###
 
