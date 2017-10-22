@@ -9,6 +9,10 @@ The backend JSON API has the following endpoints:
     * Creates a new user
     * Input:
         * facebook_id :: string
+        * first_name :; string
+        * last_name :: string
+        * email :: string
+        * image_link :: string
         * language :: string
         * country_of_origin :: string
         * gender :: string
@@ -22,11 +26,17 @@ The backend JSON API has the following endpoints:
     * Obtains information about a user
     * Output
         * If user exists, {status 200}
+            * facebook_id :: string
+            * first_name :: string
+            * last_name :: string
+            * email :: string
+            * image_link :: string
             * language :: string
             * country_of_origin :: string
             * gender :: string
             * bio :: string
             * education :: string
+            * role :: string{mentor, mentee}
         * If user doesn't exist, {status 400}
         
 * `/matchup` - Represents a call to find the best possible match between mentor and mentee
@@ -57,6 +67,10 @@ The backend JSON API has the following endpoints:
 ## Database Schema
 * **user** (primary key: facebook_id)
     * facebook_id :: string
+    * first_name :: string
+    * last_name :: string
+    * email :: string
+    * image_link :: string
     * language :: string
     * country_of_origin :: string
     * gender :: string
