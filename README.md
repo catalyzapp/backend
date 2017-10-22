@@ -103,3 +103,4 @@ The backend JSON API has the following endpoints:
     * sent_by :: user.facebook_id
     * message :: string
     * timestamp :: timestamp(with time zone)
+    
