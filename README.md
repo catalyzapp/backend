@@ -18,7 +18,7 @@ The backend JSON API has the following endpoints:
         * gender :: string
         * bio :: string
         * interest :: string
-        * role :: string{mentor, mentee}
+        * role :: string{mentor, mentee}    
     * Output
         * If successfully created, {status 200}
         * If failure, {status 400}
@@ -40,20 +40,36 @@ The backend JSON API has the following endpoints:
         * If user doesn't exist, {status 400}
         
 * `/matchup` - Represents a call to find the best possible match between mentor and mentee
-    * Matches a mentee to a mentor
-    * Output
-        * recommendations :: [{mentor, mentor_bio, mentee, mentee_bio, similarity_score}]
+    * `POST /`
+        * Matches a mentee to a mentor
+        * Input
+            * facebook_id :: string{facebook_id}
+        * Output
+            * recommendations :: [{mentor, mentor_bio, mentee, mentee_bio, similarity_score}]
         
 * `/conversation` - Represents a conversation instance between a mentor and mentee
-    * `GET /`
+    * `POST /`
         * Gets a specific conversation's stream of messages in chronological order
         * Input
             * mentor :: string{facebook_id}
             * mentee :: string{facebook_id}
         * Output:
+            * mentor :: string
+            * mentee :: string
             * timestamp :: string
             * messages :: {sent_by :: string{facebook_id}, message :: string, timestamp :: string}
             
+* `/history` - Represents a history of conversations a user has had
+    * `POST /`
+        * Gets a list of all conversations a user has had
+        * Input
+            * facebook_id :: string{facebook_id}
+         * Output
+            * mentor :: string
+            * mentor_bio :: string
+            * mentee :: string
+            * mentee_bio :: string
+            * timestamp :: string
 
 * `/message` - Represents an atomic message within a conversation
   * `POST /`
