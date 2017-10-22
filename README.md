@@ -17,7 +17,7 @@ The backend JSON API has the following endpoints:
         * country_of_origin :: string
         * gender :: string
         * bio :: string
-        * education :: string
+        * interest :: string
         * role :: string{mentor, mentee}
     * Output
         * If successfully created, {status 200}
@@ -35,7 +35,7 @@ The backend JSON API has the following endpoints:
             * country_of_origin :: string
             * gender :: string
             * bio :: string
-            * education :: string
+            * interest :: string
             * role :: string{mentor, mentee}
         * If user doesn't exist, {status 400}
         
@@ -75,7 +75,7 @@ The backend JSON API has the following endpoints:
     * country_of_origin :: string
     * gender :: string
     * bio :: string
-    * education :: string
+    * interest :: string
     * role :: string{mentor, mentee}
 * **conversation** (primary key: id)
     * id :: int
